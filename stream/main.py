@@ -13,5 +13,4 @@ while True:
     img = cv2.resize(img, (int(img.shape[1] * scaler), int(img.shape[0] * scaler)))
 
     cv2.imshow('img', img)
-
     cv2.waitKey(1)
