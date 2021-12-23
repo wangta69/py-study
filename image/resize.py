@@ -8,15 +8,34 @@ import matplotlib.pyplot as plt
 files = glob.glob('../../../py-project/py-funny/image_mosaic/assets/my-photos/*')
 
 for f in files:
-    print(f)
+    # print(f)
+    title, ext = os.path.splitext(f)
+    print(os.path.splitext(f))
+    title = title.replace('../../../py-project/py-funny/image_mosaic/assets/my-photos\\', '')
+    print('title', title, 'ext', ext)
     img = Image.open(f)
-    # print(img.size)
+    # print(img.name)
 
-    x, y = img.width, img.height
-    sx = x // 2 - (min(x, y) // 2)
-    sy = y // 2 - (min(x, y) // 2)
-    img = img.crop((sx, sy, sx + min(x, y), sy + min(x, y)))  # (가로 시작점, 세로 시작점, 가로 범위, 세로 범위)
-    img.show()
+    img = img.copy().resize((32, 32))
+
+    img.save('../../../py-project/py-funny/image_mosaic/assets/my-photos/' + title + ext)
+
+# for f in files:
+#     # print(f)
+#     title, ext = os.path.splitext(f)
+#     print(os.path.splitext(f))
+#     title = title.replace('../../../py-project/py-funny/image_mosaic/assets/my-photos\\', '')
+#     print('title', title, 'ext', ext)
+#     img = Image.open(f)
+#     # print(img.name)
+#
+#
+#
+#     x, y = img.width, img.height
+#     sx = x // 2 - (min(x, y) // 2)
+#     sy = y // 2 - (min(x, y) // 2)
+#     img = img.crop((sx, sy, sx + min(x, y), sy + min(x, y)))  # (가로 시작점, 세로 시작점, 가로 범위, 세로 범위)
+#     img.save('../../../py-project/py-funny/image_mosaic/assets/my-photos/' + title + ext)
 
 
 
