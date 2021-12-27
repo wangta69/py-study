@@ -123,3 +123,12 @@ plt.yticks(np.arange(0, 7), ('0', '1GB', '2GB', '3GB', '4GB', '5GB', '6GB'))
 # plt.show()
 
 
+x = np.arange(1,11)
+y = 1 / (1 + np.exp(-x))
+plt.title("Matplotlib demo")
+plt.xlabel("x axis caption")
+plt.ylabel("y axis caption")
+plt.plot(x, y)
+plt.show()
+
+
